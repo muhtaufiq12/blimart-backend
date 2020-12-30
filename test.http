@@ -1,0 +1,462 @@
+GET https://localhost:8080/bliblimart/api/users?page=1&size=2
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU5NTc4MzgyMCwiZXhwIjoxNTk1ODQzODIwfQ.hrWRjHUJSnsapJdZ9mUgtoYz3E6nm_YhLdHZ-Ka5nueGs4hOAlfIDibTO9Kvh84CHW71HvvSttBl-8xS1SvMLA
+
+###
+# Register new user
+POST https://localhost:8080/bliblimart/api/register
+Content-Type: application/json
+Accept: application/json
+
+{
+  "username": "test2",
+  "password": "test2",
+  "email": "test2@gmail.com"
+}
+
+###
+# Add Admin
+POST https://localhost:8080/bliblimart/api/register
+Content-Type: application/json
+Accept: application/json
+
+{
+  "username": "admin2",
+  "password": "admin",
+  "email": "admin@gmail.com",
+  "admin": true
+}
+
+###
+POST https://localhost:8080/bliblimart/api/login
+Content-Type: application/json
+Accept: application/json
+
+{
+  "username": "keiya",
+  "password": "warid123"
+}
+
+###
+#Block user
+DELETE https://localhost:8080/bliblimart/api/users/4dda05cf-1b2e-4e70-88e8-c9971012213a
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU5NTcwMjkwMywiZXhwIjoxNTk1NzYyOTAzfQ._ItQh4ypFe-3ED2ttFJY1TAxm9T_rvV3kz29OoESNIX9xPLFBOmpiWQfyFg9CKjZZCxhdHsN1fVvrIJiL27yLA
+
+###
+#Unblock user
+POST https://localhost:8080/bliblimart/api/users/unblock/4dda05cf-1b2e-4e70-88e8-c9971012213a
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU5NTcwMjkwMywiZXhwIjoxNTk1NzYyOTAzfQ._ItQh4ypFe-3ED2ttFJY1TAxm9T_rvV3kz29OoESNIX9xPLFBOmpiWQfyFg9CKjZZCxhdHsN1fVvrIJiL27yLA
+
+###
+POST https://localhost:8080/bliblimart/api/logout
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU5NTcwMjkwMywiZXhwIjoxNTk1NzYyOTAzfQ._ItQh4ypFe-3ED2ttFJY1TAxm9T_rvV3kz29OoESNIX9xPLFBOmpiWQfyFg9CKjZZCxhdHsN1fVvrIJiL27yLA
+
+###
+POST https://localhost:8080/bliblimart/api/users/profile
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJrZWl5YSIsImlhdCI6MTU5NTc0OTc2NSwiZXhwIjoxNTk1ODA5NzY1fQ.vi7-x4_5TIo5OHTAqDhjR3WoZWAs2yZAmEZkigin4_HHLoGnN_LfipSDkGntsN6pq7mnLbAmrYAzhuWmjoD_NQ
+
+{
+  "name": "warid keiya",
+  "birthDate": "1999/01/03",
+  "gender": true,
+  "phone": "081234567890"
+}
+
+###
+PUT https://localhost:8080/bliblimart/api/users/profile
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJrZWl5YSIsImlhdCI6MTU5NTc0OTc2NSwiZXhwIjoxNTk1ODA5NzY1fQ.vi7-x4_5TIo5OHTAqDhjR3WoZWAs2yZAmEZkigin4_HHLoGnN_LfipSDkGntsN6pq7mnLbAmrYAzhuWmjoD_NQ
+
+{
+  "id": "2c8864a8-d3bf-4542-a202-c3e0e4297bfb",
+  "name": "warid windy",
+  "birthDate": "1999/01/03",
+  "gender": true,
+  "phone": "081234567890"
+}
+
+###
+#Get my profile
+GET https://localhost:8080/bliblimart/api/users/profile/me
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJrZWl5YSIsImlhdCI6MTU5NTk5NDU3OSwiZXhwIjoxNTk2MDU0NTc5fQ.G9tNXKSbLcp6D_qBcLSvQd0d3mHFMu5gUBc0N1f4yrYoPdOzCShNdnXKw0jdlf4Xzz5gNq1vZk7Fwce5zdX06w
+
+###
+#Upload profile's photo
+POST https://localhost:8080/bliblimart/api/users/photo
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJrZWl5YSIsImlhdCI6MTU5NTc0OTc2NSwiZXhwIjoxNTk1ODA5NzY1fQ.vi7-x4_5TIo5OHTAqDhjR3WoZWAs2yZAmEZkigin4_HHLoGnN_LfipSDkGntsN6pq7mnLbAmrYAzhuWmjoD_NQ
+
+--WebAppBoundary
+Content-Disposition: form-data; name="photo"; filename="antimage.jpg"
+
+< F:\Images\antimage.jpg
+--WebAppBoundary--
+
+###
+#Upload profile's photo
+GET http://localhost:8080/bliblimart/api/users/photo/d40c619b-5057-4d4d-b01d-bdc1cb5e5745
+Accept: image/jpeg
+
+###
+#Get data profile by id
+GET https://localhost:8080/bliblimart/api/users/profile/4dda05cf-1b2e-4e70-88e8-c9971012213a
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU5NTc1NjU1MywiZXhwIjoxNTk1ODE2NTUzfQ.Vuqizb5WhI1hMJUcQisbx1_xFGLsQ4n8Q8kHn__S2wykgM5lhv2JoN8-lS1i27lLMwQ_OR1scJX7-IIdxgS6xA
+
+###
+#Create new category
+POST https://localhost:8080/bliblimart/api/categories
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU5NTgzMTEwNywiZXhwIjoxNTk1ODkxMTA3fQ.YFwoRS0OGAwGomHENziM-woLCXjCXsT-F0fQYaEUplETNY9ZXiCbvZFmgQtPh1E4R3UQNxC8GSr0eKBmtI65Wg
+
+{
+  "name": "Minuman"
+}
+
+###
+#Get all category
+GET https://localhost:8080/bliblimart/api/categories
+Accept: application/json
+
+###
+#Get products by keyword
+GET https://localhost:8080/bliblimart/api/products/search?keyword=de&page=1&size=10
+Accept: application/json
+
+###
+#Get all products by pagination
+GET https://localhost:8080/bliblimart/api/products?page=2&size=1
+Accept: application/json
+
+###
+#Get product by Id
+GET https://localhost:8080/bliblimart/api/products/958cf916-5fb7-4f0e-b29b-0718d8b6f956
+Accept: application/json
+
+###
+#Get products by categoryId
+GET https://localhost:8080/bliblimart/api/products/category/8d9a3962-38c9-48be-943c-493ce2fdd8fe?page=1&size=10
+Accept: application/json
+
+###
+#Get top-sold products
+GET https://localhost:8080/bliblimart/api/products/top-sold?size=10
+Accept: application/json
+
+###
+#Get promo products
+GET https://localhost:8080/bliblimart/api/products/promo?size=10
+Accept: application/json
+
+###
+#Get random products
+GET https://localhost:8080/bliblimart/api/products/random?size=1
+Accept: application/json
+
+###
+#Get random by related products
+GET https://localhost:8080/bliblimart/api/products/random/958cf916-5fb7-4f0e-b29b-0718d8b6f956?size=2
+Accept: application/json
+
+###
+#Create new product
+POST https://localhost:8080/bliblimart/api/products
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU5NTkzMTc1NiwiZXhwIjoxNTk1OTkxNzU2fQ.b0hVdaECXwmZuSrrNNlAfueLkAuQ4aj-pp9KEZjwtRYZ_uCm5WrCmgx73XRMUUZhMQA0KKehMzS3nOH8Iv_fdw
+
+{
+  "name": "Dettol",
+  "price": "10000",
+  "variant": "Lemon",
+  "stock": 50,
+  "mark1": "Iw",
+  "mark2": "Je",
+  "categoryId": "8d9a3962-38c9-48be-943c-493ce2fdd8fe",
+  "blimartId": "951455e0-fa76-46a1-b316-13f752dfcf8b"
+}
+
+###
+#Update product
+PUT https://localhost:8080/bliblimart/api/products
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU5NTkzMTc1NiwiZXhwIjoxNTk1OTkxNzU2fQ.b0hVdaECXwmZuSrrNNlAfueLkAuQ4aj-pp9KEZjwtRYZ_uCm5WrCmgx73XRMUUZhMQA0KKehMzS3nOH8Iv_fdw
+
+{
+  "id": "958cf916-5fb7-4f0e-b29b-0718d8b6f956",
+  "name": "Lifebuoy",
+  "price": "9000",
+  "variant": "Mawar",
+  "stock": 50,
+  "discount": 10,
+  "mark1": "Cw",
+  "mark2": "De",
+  "categoryId": "8d9a3962-38c9-48be-943c-493ce2fdd8fe",
+  "blimartId": "951455e0-fa76-46a1-b316-13f752dfcf8b"
+}
+
+###
+#Delete product
+DELETE https://localhost:8080/bliblimart/api/products/1aee0122-eb7d-442c-b152-56da670de183
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU5NTc2MzQ4OCwiZXhwIjoxNTk1ODIzNDg4fQ.eE8KPbgKyykU6-QDDowInIVPdef422G7fz8CYIn90D_Lsp7C-z__TfWiWUzU1LYJYAlUsYz6W4P4Af6pFiKhjw
+
+###
+#Upload product's photo
+POST https://localhost:8080/bliblimart/api/products/photo/958cf916-5fb7-4f0e-b29b-0718d8b6f956
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU5NTgzMTEwNywiZXhwIjoxNTk1ODkxMTA3fQ.YFwoRS0OGAwGomHENziM-woLCXjCXsT-F0fQYaEUplETNY9ZXiCbvZFmgQtPh1E4R3UQNxC8GSr0eKBmtI65Wg
+
+--WebAppBoundary
+Content-Disposition: form-data; name="photo"; filename="antimage.jpg"
+
+< F:\Images\antimage.jpg
+--WebAppBoundary--
+
+###
+#Get product's photo
+GET https://localhost:8080/bliblimart/api/products/photo/958cf916-5fb7-4f0e-b29b-0718d8b6f956
+
+###
+#Create new supplier
+PUT https://localhost:8080/bliblimart/api/suppliers
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU5NTgzMTEwNywiZXhwIjoxNTk1ODkxMTA3fQ.YFwoRS0OGAwGomHENziM-woLCXjCXsT-F0fQYaEUplETNY9ZXiCbvZFmgQtPh1E4R3UQNxC8GSr0eKBmtI65Wg
+
+{
+  "id": "0b7e6522-a6f9-4c32-9d0e-09ef7a4cf54b",
+  "name": "ABC Corp.",
+  "email": "abc@gmail.com",
+  "phone": "021123141"
+}
+
+###
+#Delete supplier
+DELETE https://localhost:8080/bliblimart/api/suppliers/df55e5d7-7552-414f-a337-7b59c2654f7c
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU5NTgzMTEwNywiZXhwIjoxNTk1ODkxMTA3fQ.YFwoRS0OGAwGomHENziM-woLCXjCXsT-F0fQYaEUplETNY9ZXiCbvZFmgQtPh1E4R3UQNxC8GSr0eKBmtI65Wg
+
+###
+#Create new supply
+POST https://localhost:8080/bliblimart/api/supplies
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU5NTgzMTEwNywiZXhwIjoxNTk1ODkxMTA3fQ.YFwoRS0OGAwGomHENziM-woLCXjCXsT-F0fQYaEUplETNY9ZXiCbvZFmgQtPh1E4R3UQNxC8GSr0eKBmtI65Wg
+
+{
+  "supplierId": "0b7e6522-a6f9-4c32-9d0e-09ef7a4cf54b",
+  "productId": "958cf916-5fb7-4f0e-b29b-0718d8b6f956",
+  "qty": 5
+}
+
+###
+#Get all supplier
+GET https://localhost:8080/bliblimart/api/supplies?page=1&size=2
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU5NTgzMTEwNywiZXhwIjoxNTk1ODkxMTA3fQ.YFwoRS0OGAwGomHENziM-woLCXjCXsT-F0fQYaEUplETNY9ZXiCbvZFmgQtPh1E4R3UQNxC8GSr0eKBmtI65Wg
+
+###
+#Create new wishlist
+POST https://localhost:8080/bliblimart/api/wishlists
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ3aW5keSIsImlhdCI6MTU5NTg0NTQ2MywiZXhwIjoxNTk1OTA1NDYzfQ.TVdIMPxMAWFHVVFFrsqzLY52R6o6koH0icYfRy4mE8qrAS5GLQBW3OsiHdrZvJAHEaK1xZ--uiZWv6yHXDbt5Q
+
+{
+  "productId": "958cf916-5fb7-4f0e-b29b-0718d8b6f956"
+}
+
+###
+#Delete wishlist
+DELETE https://localhost:8080/bliblimart/api/wishlists/243b88d6-e27b-469b-983a-9b74ea97d9de
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ3aW5keSIsImlhdCI6MTU5NTg5NDQyNywiZXhwIjoxNTk1OTU0NDI3fQ.BKi8ZWs_ZqT_6447HC5NukQZdHbqCXuUq1Kpw54YGK_sg_0s4ZxEFIGD15-ILSD6Lc-sJtfjx5Yxp5E8vIHyVw
+
+###
+#Get my wishlist
+GET http://localhost:8080/bliblimart/api/wishlists/me?page=1&size=1
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyb2JpIiwiaWF0IjoxNTkzNzcwOTQ0LCJleHAiOjE1OTM3ODg5NDR9.l_1TUcCMpr_k1XZWNEKd_6B8Biiv4ippUt7HKZ20K8xIWyYNMINpAvA4ixFG7lscYZTz5i_CTGiFG68VrqgBsg
+
+###
+#Create new cart
+POST https://localhost:8080/bliblimart/api/carts
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ3aW5keSIsImlhdCI6MTU5NTg5NDQyNywiZXhwIjoxNTk1OTU0NDI3fQ.BKi8ZWs_ZqT_6447HC5NukQZdHbqCXuUq1Kpw54YGK_sg_0s4ZxEFIGD15-ILSD6Lc-sJtfjx5Yxp5E8vIHyVw
+
+{
+  "productId": "4f8ed284-25c4-4a2b-bb3f-491a6023f005"
+}
+
+###
+#Update cart
+PUT https://localhost:8080/bliblimart/api/carts
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ3aW5keSIsImlhdCI6MTU5NTg5NDQyNywiZXhwIjoxNTk1OTU0NDI3fQ.BKi8ZWs_ZqT_6447HC5NukQZdHbqCXuUq1Kpw54YGK_sg_0s4ZxEFIGD15-ILSD6Lc-sJtfjx5Yxp5E8vIHyVw
+
+{
+  "id": "603cd3b7-d8fc-4b4f-8772-151ee208ada0",
+  "productId": "958cf916-5fb7-4f0e-b29b-0718d8b6f956",
+  "totalItem": 0
+}
+
+###
+#Delete cart
+DELETE https://localhost:8080/bliblimart/api/carts
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ3aW5keSIsImlhdCI6MTU5NTg5NDQyNywiZXhwIjoxNTk1OTU0NDI3fQ.BKi8ZWs_ZqT_6447HC5NukQZdHbqCXuUq1Kpw54YGK_sg_0s4ZxEFIGD15-ILSD6Lc-sJtfjx5Yxp5E8vIHyVw
+
+{
+  "ids": [
+    "440d61fe-ec0f-4b03-9f3f-7ab82eabb1f6",
+    "f0cc975f-f1db-4d63-ab68-5ff1bc907793"
+  ]
+}
+
+###
+#Get my cart
+GET https://localhost:8080/bliblimart/api/carts/me
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ3aW5keSIsImlhdCI6MTU5NTg5NDQyNywiZXhwIjoxNTk1OTU0NDI3fQ.BKi8ZWs_ZqT_6447HC5NukQZdHbqCXuUq1Kpw54YGK_sg_0s4ZxEFIGD15-ILSD6Lc-sJtfjx5Yxp5E8vIHyVw
+
+###
+#Create new transaction
+POST https://localhost:8080/bliblimart/api/checkout
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ3aW5keSIsImlhdCI6MTU5NTg5NDQyNywiZXhwIjoxNTk1OTU0NDI3fQ.BKi8ZWs_ZqT_6447HC5NukQZdHbqCXuUq1Kpw54YGK_sg_0s4ZxEFIGD15-ILSD6Lc-sJtfjx5Yxp5E8vIHyVw
+
+{
+  "products": [
+    {
+      "productId": "4f8ed284-25c4-4a2b-bb3f-491a6023f005",
+      "totalItem": 1
+    }
+  ]
+}
+
+###
+#Get my active transaction
+GET https://localhost:8080/bliblimart/api/transactions/me
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ3aW5keSIsImlhdCI6MTU5NTg5NDQyNywiZXhwIjoxNTk1OTU0NDI3fQ.BKi8ZWs_ZqT_6447HC5NukQZdHbqCXuUq1Kpw54YGK_sg_0s4ZxEFIGD15-ILSD6Lc-sJtfjx5Yxp5E8vIHyVw
+
+###
+#Payment transaction
+POST https://localhost:8080/bliblimart/api/transactions/payment/5ab034c4-ce35-4242-861f-aea84b5634b5
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ3aW5keSIsImlhdCI6MTU5NTg5NDQyNywiZXhwIjoxNTk1OTU0NDI3fQ.BKi8ZWs_ZqT_6447HC5NukQZdHbqCXuUq1Kpw54YGK_sg_0s4ZxEFIGD15-ILSD6Lc-sJtfjx5Yxp5E8vIHyVw
+
+###
+#Cancel transaction
+DELETE https://localhost:8080/bliblimart/api/transactions/8939171a-d5d1-4179-b163-0b76db59a66c
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ3aW5keSIsImlhdCI6MTU5NTg5NDQyNywiZXhwIjoxNTk1OTU0NDI3fQ.BKi8ZWs_ZqT_6447HC5NukQZdHbqCXuUq1Kpw54YGK_sg_0s4ZxEFIGD15-ILSD6Lc-sJtfjx5Yxp5E8vIHyVw
+
+###
+#Get my history transaction
+GET https://localhost:8080/bliblimart/api/transactions/history?page=1&size=10
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ3aW5keSIsImlhdCI6MTU5NTg5NDQyNywiZXhwIjoxNTk1OTU0NDI3fQ.BKi8ZWs_ZqT_6447HC5NukQZdHbqCXuUq1Kpw54YGK_sg_0s4ZxEFIGD15-ILSD6Lc-sJtfjx5Yxp5E8vIHyVw
+
+###
+#Get transaction by Id
+GET https://localhost:8080/bliblimart/api/transactions/b40c4159-c54c-4ad0-96a1-7efb22d33cd5
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ3aW5keSIsImlhdCI6MTU5NTg5NDQyNywiZXhwIjoxNTk1OTU0NDI3fQ.BKi8ZWs_ZqT_6447HC5NukQZdHbqCXuUq1Kpw54YGK_sg_0s4ZxEFIGD15-ILSD6Lc-sJtfjx5Yxp5E8vIHyVw
+
+###
+#Get transaction by Id
+GET https://localhost:8080/bliblimart/api/transactions/b40c4159-c54c-4ad0-96a1-7efb22d33cd5
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU5NTg5ODUzNywiZXhwIjoxNTk1OTU4NTM3fQ.L2vOaK85qvsAEtNwToFeQ6ohB_48QWKMipr1XEIhglbRfu0axiqKApaKiEXPPpMpv6-hsGFl0NcqW8LW4n_H6A
+
+###
+#Create mark
+POST https://localhost:8080/bliblimart/api/ar/marks
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU5NTg5MzYzMSwiZXhwIjoxNTk1OTUzNjMxfQ.rm7q8vlX5Dro2r2Mp2AuAx174EOyvrQShCdNDkftsNx19Re2euFB_oRh0YGO8lxB5Pf0g_bOO7E2cZ9GrCzcRg
+
+{
+  "name": "Ln",
+  "path": "/patterns/pattern-Ln"
+}
+###
+#Update mark
+PUT https://localhost:8080/bliblimart/api/ar/marks
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU5NTg5MzYzMSwiZXhwIjoxNTk1OTUzNjMxfQ.rm7q8vlX5Dro2r2Mp2AuAx174EOyvrQShCdNDkftsNx19Re2euFB_oRh0YGO8lxB5Pf0g_bOO7E2cZ9GrCzcRg
+
+{
+  "id": "2daa2b75-1796-46a6-82fa-9ef96e21d165",
+  "name": "Ln",
+  "path": "/patterns/pattern-Ln"
+}
+###
+#Delete mark
+DELETE https://localhost:8080/bliblimart/api/ar/marks/2d5c06cb-dc2e-49b8-b1b7-e510b3b8357f
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU5NTg5MzYzMSwiZXhwIjoxNTk1OTUzNjMxfQ.rm7q8vlX5Dro2r2Mp2AuAx174EOyvrQShCdNDkftsNx19Re2euFB_oRh0YGO8lxB5Pf0g_bOO7E2cZ9GrCzcRg
+
+###
+#Get route
+POST https://localhost:8080/bliblimart/api/ar/route
+Content-Type: application/json
+Accept: application/json
+
+{
+  "startingMark": "Ae",
+  "productId": "861971a0-dec0-4016-b795-f1d424e80de6"
+}
+
+###
+#Get direction route
+PUT https://localhost:8080/bliblimart/api/ar/24ceb569-d1d6-47ca-9227-6d9091161071?mark=Is
+Accept: application/json
+
+###
+#Get all marks
+GET http://localhost:8080/bliblimart/api/ar/marks
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU5NTQyOTc2MSwiZXhwIjoxNTk1NDQ3NzYxfQ.moZmFqumhGwcK9LvuMDktdJ2td1Z4_ubbdft6cW1EfJbciFUfohlyd2jo2HvaW1-wVCQx2wHJoX-8FLxQpdMNg
+
+###
+#Delete all document elasticsearch
+POST http://localhost:9200/product/_delete_by_query
+Content-Type: application/json
+
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+###
+#Create new bliblimart
+POST https://localhost:8080/bliblimart/api/blimart
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU5NTkzMTc1NiwiZXhwIjoxNTk1OTkxNzU2fQ.b0hVdaECXwmZuSrrNNlAfueLkAuQ4aj-pp9KEZjwtRYZ_uCm5WrCmgx73XRMUUZhMQA0KKehMzS3nOH8Iv_fdw
+
+{
+  "name": "Blimart A",
+  "x": "10",
+  "y": "5"
+}
+
+###
