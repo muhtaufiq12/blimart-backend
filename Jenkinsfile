@@ -1,2 +1,2 @@
-@Library('my-shared-library@develop') _
+@Library('my-shared-library@master') _
 java()
